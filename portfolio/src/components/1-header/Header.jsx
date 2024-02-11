@@ -3,7 +3,7 @@ import "./header.css";
 // eslint-disable-next-line react/prop-types
 const Header = ({ setshowModal, theme, setTheme, showModal }) => {
   return (
-    <header className="flex">
+    <header className="flex" style={{position: 'relative'}}>
       <button
         onClick={() => {
           setshowModal(true);
@@ -61,7 +61,7 @@ const Header = ({ setshowModal, theme, setTheme, showModal }) => {
       </button>
 
       {showModal && (
-        <div className="fixed" style={{ position: "relative" }}>
+        <div className="fixed" style={{ position: "absolute" }}>
           <ul className="modal">
             <li>
               <button
