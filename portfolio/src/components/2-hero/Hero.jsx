@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 // @ts-nocheck
 import Lottie from "lottie-react";
-import devAnimation from "../../animation/dev.json";
+import devAnimation from "../../animation/programLottie.json";
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import myphoto from "../../../public/myphoto-modified.png";
@@ -12,7 +12,7 @@ const Hero = () => {
   const lottieRef = useRef();
 
   return (
-    <Stack direction={"row"} sx={{ marginTop: "3rem", alignItems: "center" }}>
+    <Stack direction={"row"} justifyContent={'space-between'} sx={{ marginTop: "3rem", alignItems: "center" }}>
       <Box
         sx={{
           maxWidth: "500px",
@@ -147,8 +147,8 @@ const Hero = () => {
 
       <Box
         sx={{
-          width: "100%",
-          translate: "100px 55px",
+          width: {lg:'30%', xl: '25%'},
+          translate: "80px 55px",
           display: { xs: "none", lg: "block" },
         }}
       >
@@ -168,6 +168,7 @@ const Hero = () => {
           animationData={devAnimation}
         />
       </Box>
+      <div />
     </Stack>
   );
 };

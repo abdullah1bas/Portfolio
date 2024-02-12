@@ -93,16 +93,16 @@ const ParticlesBackground = ({ theme , mainC }) => {
               },
               number: {
                 limit: 0,
-                value: 30,
+                value: 50,
               },
 
               opacity: {
                 random: {
                   enable: true,
-                  minimumValue: 0.2,
-                  maxValue: 0.4,
+                  minimumValue: 0.4,
+                  maxValue: 0.6,
                 },
-                value: 0.2,
+                value: 0.4,
                 animation: {
                   count: 0,
                   enable: true,

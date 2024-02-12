@@ -7,23 +7,23 @@ import { useEffect, useState } from "react";
 import ParticlesBackground from "./components/particles/ParticlesBackground";
 
 function App() {
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) {
-        setshowScrollBTN(true);
-      } else {
-        setshowScrollBTN(false);
-      }
-    });
-  }, []);
-
-  const [showScrollBTN, setshowScrollBTN] = useState(false);
-  const [showModal, setshowModal] = useState(false);
+  const [showScrollBTN, setShowScrollBTN] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [theme, setTheme] = useState(
     localStorage.getItem("currentMode")
       ? localStorage.getItem("currentMode")
       : "dark"
   );
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        setShowScrollBTN(true);
+      } else {
+        setShowScrollBTN(false);
+      }
+    });
+  }, [showScrollBTN]);
 
   useEffect(() => {
     if (theme === "light") {
@@ -39,19 +39,14 @@ function App() {
     <div id="up" className="container">
       <div style={{ position: "relative" }}>
         <ParticlesBackground theme={theme} mainC={false} />
-        <Header
-          setshowModal={setshowModal}
-          theme={theme}
-          setTheme={setTheme}
-          showModal={showModal}
-        />
+        <Header {...{ setShowModal, theme, setTheme, showModal }} />
 
         <Hero />
       </div>
 
       <div className="divider" />
-      <div style={{ position: "relative" , height: '100%' }}>
-        <ParticlesBackground theme={theme} mainC={true}  />
+      <div style={{ position: "relative", height: "100%" }}>
+        <ParticlesBackground theme={theme} mainC={true} />
         <Main />
       </div>
       <div className="divider" />

@@ -14,7 +14,7 @@ const Footer = () => {
       </ul>
 
       <Typography sx={{ color: "rgb(113 113 122)" }}>
-        © 2023 Spencer Sharp. All rights reserved.
+        © 2024 Spencer Sharp. All rights reserved.
       </Typography>
     </footer>
   );

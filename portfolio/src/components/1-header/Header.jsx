@@ -1,12 +1,12 @@
 import "./header.css";
 
 // eslint-disable-next-line react/prop-types
-const Header = ({ setshowModal, theme, setTheme, showModal }) => {
+const Header = ({ setShowModal, theme, setTheme, showModal }) => {
   return (
-    <header className="flex" style={{position: 'relative'}}>
+    <header className="flex" style={{ position: "relative" }}>
       <button
         onClick={() => {
-          setshowModal(true);
+          setShowModal(true);
         }}
         className="menu icon-menu flex"
         style={{ position: "relative" }}
@@ -67,7 +67,7 @@ const Header = ({ setshowModal, theme, setTheme, showModal }) => {
               <button
                 className="icon-close"
                 onClick={() => {
-                  setshowModal(false);
+                  setShowModal(false);
                 }}
               />
             </li>
@@ -75,7 +75,22 @@ const Header = ({ setshowModal, theme, setTheme, showModal }) => {
               (link) => {
                 return (
                   <li key={link}>
-                    <a href="">{link}</a>
+                    <a
+                      href={
+                        link == "About"
+                          ? "#about"
+                          : link == "Projects"
+                          ? "#projects"
+                          : link == "Contact"
+                          ? "#contact"
+                          : "#speaking"
+                      }
+                      onClick={() => {
+                        setShowModal(false);
+                      }}
+                    >
+                      {link}
+                    </a>
                   </li>
                 );
               }

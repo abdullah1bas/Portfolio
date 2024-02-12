@@ -4,7 +4,7 @@ import Lottie from "lottie-react";
 import doneAnimation from "../../animation/done.json";
 import contactAnimation from "../../animation/contact.json";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Alert, Snackbar } from "@mui/material";
 
 const Contact = () => {
@@ -34,7 +34,8 @@ const Contact = () => {
     // console.log(data);
     handleClick();
   };
-
+  const openAniMemo = useMemo(() => openAnimation,[openAnimation]);
+  const openAlertMemo = useMemo(() => openAlert,[openAlert]);
   return (
     <section className="contact-us" id="contact">
       <h1 className="title">
@@ -58,7 +59,7 @@ const Contact = () => {
               id="email"
               {...register("email")}
               aria-invalid={errors.email ? true : false}
-              disabled={!errors.email && openAnimation}
+              disabled={!errors.email && openAniMemo}
             />
           </div>
 
@@ -70,21 +71,21 @@ const Contact = () => {
               id="message"
               {...register("textarea")}
               aria-invalid={errors.textarea ? true : false}
-              disabled={!errors.textarea && openAnimation}
+              disabled={!errors.textarea && openAniMemo}
             />
           </div>
 
           <button
             type="submit"
-            disabled={!errors.email && openAnimation && !errors.textarea}
+            disabled={!errors.email && openAniMemo && !errors.textarea}
             className="submit"
           >
-            {!errors.email && openAnimation && !errors.textarea ? "Submitting ..." : "Submit"}
+            {!errors.email && openAniMemo && !errors.textarea ? "Submitting ..." : "Submit"}
           </button>
 
           <Snackbar
             anchorOrigin={{ vertical: "top", horizontal: "right" }}
-            open={openAlert}
+            open={openAlertMemo}
             autoHideDuration={3000}
             onClose={handleClose}
           >
@@ -93,7 +94,7 @@ const Contact = () => {
             </Alert>
           </Snackbar>
 
-          {!errors.email && openAnimation && !errors.textarea && (
+          {!errors.email && openAniMemo && !errors.textarea && (
             <div
               className="flex"
               style={{ fontSize: "18px", marginTop: "1.7rem" }}

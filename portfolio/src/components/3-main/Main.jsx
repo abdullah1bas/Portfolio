@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import "./main.css";
 import { myProjects } from "./myProjects";
 import { AnimatePresence, motion } from "framer-motion";
@@ -19,16 +19,19 @@ const Main = () => {
 
     setProjects(newArr);
   };
+  const projectsMemo = useMemo(() =>  projects,[projects]);
+  const activeMemo = useMemo(() =>  currentActive,[currentActive]);
 
   return (
     <main className="flex" id="projects">
+
       <section style={{zIndex: 1 , position: 'relative'}} className="flex  left-section">
         <button
           onClick={() => {
             setcurrentActive("all");
             setProjects(myProjects);
           }}
-          className={currentActive == "all" ? "active" : null}
+          className={activeMemo == "all" ? "active" : null}
         >
           all projects
         </button>
@@ -37,7 +40,7 @@ const Main = () => {
           onClick={() => {
             handleClick("css");
           }}
-          className={currentActive == "css" ? "active" : null}
+          className={activeMemo == "css" ? "active" : null}
         >
           HTML & CSS
         </button>
@@ -46,7 +49,7 @@ const Main = () => {
           onClick={() => {
             handleClick("CSSBootstrap");
           }}
-          className={currentActive == "CSSBootstrap" ? "active" : null}
+          className={activeMemo == "CSSBootstrap" ? "active" : null}
         >
           CSS & BS
         </button>
@@ -55,7 +58,7 @@ const Main = () => {
           onClick={() => {
             handleClick("js");
           }}
-          className={currentActive == "js" ? "active" : null}
+          className={activeMemo == "js" ? "active" : null}
         >
           Game JS
         </button>
@@ -64,7 +67,7 @@ const Main = () => {
           onClick={() => {
             handleClick("JSBootstrap");
           }}
-          className={currentActive == "JSBootstrap" ? "active" : null}
+          className={activeMemo == "JSBootstrap" ? "active" : null}
         >
           JavaScript & BS
         </button>
@@ -73,7 +76,7 @@ const Main = () => {
           onClick={() => {
             handleClick("react");
           }}
-          className={currentActive == "react" ? "active" : null}
+          className={activeMemo == "react" ? "active" : null}
         >
           React & MUI
         </button>
@@ -81,7 +84,7 @@ const Main = () => {
 
       <section style={{zIndex: 1 , position: 'relative'}} className="flex right-section">
         <AnimatePresence>
-          {projects.map((item) => {
+          {projectsMemo.map((item) => {
             return (
               <motion.article
                 layout
