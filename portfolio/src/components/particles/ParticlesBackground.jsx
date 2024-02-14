@@ -64,9 +64,6 @@ const ParticlesBackground = ({ theme , mainC }) => {
                 enable: true,
                 mode: "bounce",
               },
-              color: {
-                value: "#fff",
-              },
               move: {
                 angle: {
                   offset: 0,
@@ -113,8 +110,11 @@ const ParticlesBackground = ({ theme , mainC }) => {
                   startValue: "random",
                 },
               },
+              color: {
+                value: theme == "light" ? "#090909" : "#ffffff",
+              },
               shape: {
-                type: "character",
+                type: "char",
                 character: [
                   "\uf38b",
                   "\uf3b9",
@@ -151,18 +151,18 @@ const ParticlesBackground = ({ theme , mainC }) => {
                 },
               },
 
-              lineLinked: {
-                blink: false,
-                color: {
-                  value: "#ffffff",
-                },
-                consent: true,
-                distance: 100,
-                enable: true,
-                frequency: 10,
-                opacity: 0.4,
-                width: 1,
-              },
+              // lineLinked: {
+              //   blink: false,
+              //   color: {
+              //     value: theme == "light" ? "#090909" : "#ffffff",
+              //   },
+              //   consent: true,
+              //   distance: 100,
+              //   enable: true,
+              //   frequency: 10,
+              //   opacity: 0.4,
+              //   width: 1,
+              // },
             }
           : {
               number: {
