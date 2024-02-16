@@ -1,3 +1,4 @@
+import React from "react";
 import "./header.css";
 
 // eslint-disable-next-line react/prop-types
@@ -102,4 +103,4 @@ const Header = ({ setShowModal, theme, setTheme, showModal }) => {
   );
 };
 
-export default Header;
+export default React.memo(Header);

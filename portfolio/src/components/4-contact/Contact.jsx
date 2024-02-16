@@ -4,7 +4,7 @@ import Lottie from "lottie-react";
 import doneAnimation from "../../animation/done.json";
 import contactAnimation from "../../animation/contact.json";
 import { useForm } from "react-hook-form";
-import { useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import { Alert, Snackbar } from "@mui/material";
 
 const Contact = () => {
@@ -121,4 +121,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default React.memo(Contact);

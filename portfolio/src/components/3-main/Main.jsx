@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import "./main.css";
 import { myProjects } from "./myProjects";
 import { AnimatePresence, motion } from "framer-motion";
@@ -199,4 +199,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default React.memo(Main);

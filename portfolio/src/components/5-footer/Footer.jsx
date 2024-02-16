@@ -1,3 +1,4 @@
+import React from "react";
 import "./footer.css";
 import { Typography } from "@mui/material";
 const Footer = () => {
@@ -20,4 +21,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default React.memo(Footer);

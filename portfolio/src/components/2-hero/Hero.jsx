@@ -2,7 +2,7 @@
 // @ts-nocheck
 import Lottie from "lottie-react";
 import devAnimation from "../../animation/programLottie.json";
-import { useRef } from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import myphoto from "../../../public/myphoto-modified.png";
 import { Facebook, GitHub, Instagram, LinkedIn } from "@mui/icons-material";
@@ -10,7 +10,6 @@ import { Box, IconButton, Stack, Tooltip, Typography } from "@mui/material";
 
 const Hero = () => {
   const lottieRef = useRef();
-
   return (
     <Stack direction={"row"} justifyContent={'space-between'} sx={{ marginTop: "3rem", alignItems: "center" }}>
       <Box
@@ -173,4 +172,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default React.memo(Hero);
