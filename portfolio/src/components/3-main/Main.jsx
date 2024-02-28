@@ -1,9 +1,10 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import "./main.css";
 import { myProjects } from "./myProjects";
 import { AnimatePresence, motion } from "framer-motion";
 import { Button, IconButton, Stack, Tooltip, Typography } from "@mui/material";
 import { ArrowRightAltOutlined, GitHub, InsertLink } from "@mui/icons-material";
+import UseValue from "../UseValue";
 
 
 const Main = () => {
@@ -19,8 +20,8 @@ const Main = () => {
 
     setProjects(newArr);
   };
-  const projectsMemo = useMemo(() =>  projects,[projects]);
-  const activeMemo = useMemo(() =>  currentActive,[currentActive]);
+  const projectsMemo = UseValue(projects);
+  const activeMemo = UseValue(currentActive);
 
   return (
     <main className="flex" id="projects">

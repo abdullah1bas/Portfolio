@@ -4,8 +4,9 @@ import Lottie from "lottie-react";
 import doneAnimation from "../../animation/done.json";
 import contactAnimation from "../../animation/contact.json";
 import { useForm } from "react-hook-form";
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import { Alert, Snackbar } from "@mui/material";
+import UseValue from "../../components/UseValue";
 
 const Contact = () => {
   const [openAlert, setOpenAlert] = useState(false);
@@ -34,8 +35,8 @@ const Contact = () => {
     // console.log(data);
     handleClick();
   };
-  const openAniMemo = useMemo(() => openAnimation,[openAnimation]);
-  const openAlertMemo = useMemo(() => openAlert,[openAlert]);
+  const openAniMemo = UseValue(openAnimation);
+  const openAlertMemo = UseValue(openAlert);
   return (
     <section className="contact-us" id="contact">
       <h1 className="title">
