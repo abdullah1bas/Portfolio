@@ -1,5 +1,6 @@
 import React from "react";
 import "./header.css";
+import { Tooltip, Zoom } from "@mui/material";
 
 // eslint-disable-next-line react/prop-types
 const Header = ({ setShowModal, theme, setTheme, showModal }) => {
@@ -40,26 +41,28 @@ const Header = ({ setShowModal, theme, setTheme, showModal }) => {
         </ul>
       </nav>
 
-      <button
-        onClick={() => {
-          // Send value to LS
-          localStorage.setItem(
-            "currentMode",
-            theme === "dark" ? "light" : "dark"
-          );
-
-          // get value from LS
-          setTheme(localStorage.getItem("currentMode"));
-        }}
-        className="mode flex"
-        style={{ position: "relative" }}
-      >
-        {theme === "dark" ? (
-          <span className="icon-moon-o"> </span>
-        ) : (
-          <span className="icon-sun"> </span>
-        )}
-      </button>
+      <Tooltip TransitionComponent={Zoom} title={theme === "dark" ? "Dark" : "Light"}>
+        <button
+          onClick={() => {
+            // Send value to LS
+            localStorage.setItem(
+              "currentMode",
+              theme === "dark" ? "light" : "dark"
+            );
+        
+            // get value from LS
+            setTheme(localStorage.getItem("currentMode"));
+          }}
+          className="mode flex"
+          style={{ position: "relative" }}
+        >
+          {theme === "dark" ? (
+            <span className="icon-moon-o"> </span>
+          ) : (
+            <span className="icon-sun"> </span>
+          )}
+        </button>
+      </Tooltip>
 
       {showModal && (
         <div className="fixed" style={{ position: "absolute" }}>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./main.css";
 import { myProjects } from "./myProjects";
 import { AnimatePresence, motion } from "framer-motion";
-import { Button, IconButton, Stack, Tooltip, Typography } from "@mui/material";
+import { Button, IconButton, Stack, Tooltip, Typography, Zoom } from "@mui/material";
 import { ArrowRightAltOutlined, GitHub, InsertLink } from "@mui/icons-material";
 import UseValue from "../UseValue";
 
@@ -132,7 +132,7 @@ const Main = () => {
 
                   <Stack direction={"row"} justifyContent={"space-between"}>
                     <Stack gap={"11px"} direction={"row"}>
-                      <Tooltip title="website">
+                      <Tooltip TransitionComponent={Zoom} title="website">
                         <IconButton
                           href={item.linkPath}
                           target="_blank"
@@ -149,7 +149,7 @@ const Main = () => {
                         </IconButton>
                       </Tooltip>
 
-                      <Tooltip title="github">
+                      <Tooltip TransitionComponent={Zoom} title="github">
                         <IconButton
                           href={item.githubPath}
                           target="_blank"

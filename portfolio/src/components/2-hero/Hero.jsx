@@ -6,7 +6,7 @@ import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import myphoto from "../../../public/myphoto-modified.png";
 import { Facebook, GitHub, Instagram, LinkedIn } from "@mui/icons-material";
-import { Box, IconButton, Stack, Tooltip, Typography } from "@mui/material";
+import { Box, IconButton, Stack, Tooltip, Typography, Zoom } from "@mui/material";
 
 const Hero = () => {
   const lottieRef = useRef();
@@ -118,7 +118,7 @@ const Hero = () => {
             },
           ].map((linkButton) => {
             return (
-              <Tooltip title={linkButton.title} key={linkButton.link}>
+              <Tooltip TransitionComponent={Zoom} title={linkButton.title} key={linkButton.link}>
                 <IconButton
                   aria-label="Social"
                   href={linkButton.link}
