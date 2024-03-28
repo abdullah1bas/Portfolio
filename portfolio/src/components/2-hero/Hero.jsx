@@ -5,8 +5,42 @@ import devAnimation from "../../animation/programLottie.json";
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import myphoto from "../../../public/myphoto-modified.png";
-import { Facebook, GitHub, Instagram, LinkedIn } from "@mui/icons-material";
+import { Facebook, FileDownload, GitHub, Instagram, LinkedIn, WhatsApp } from "@mui/icons-material";
 import { Box, IconButton, Stack, Tooltip, Typography, Zoom } from "@mui/material";
+
+const socialData = [
+  {
+    link: "https://www.facebook.com/abdullahafter.change",
+    icon: <Facebook />,
+    title: "Facebook",
+  },
+  {
+    link: "https://www.instagram.com/abdullah_1_bas/",
+    icon: <Instagram />,
+    title: "Instagram",
+  },
+  {
+    link: "https://github.com/abdullah1bas",
+    icon: <GitHub />,
+    title: "Git Hub",
+  },
+  {
+    link: "https://www.linkedin.com/in/abdullah-fadel-21500b27b/",
+    icon: <LinkedIn />,
+    title: "Linked In",
+  },
+  {
+    link: "https://api.whatsapp.com/send?phone=201202476212&text&type=phone_number&app_absent=0",
+    icon: <WhatsApp />,
+    title: "ًWhats App",
+  },
+  {
+    link: "../../../public/Resume-Abdullah.pdf",
+    icon: <FileDownload />,
+    title: "ًDownload CV",
+    downloadCv: 'Resume-Abdullah.pdf'
+  },
+];
 
 const Hero = () => {
   const lottieRef = useRef();
@@ -31,11 +65,7 @@ const Hero = () => {
             animate={{ transform: "scale(1.1)" }}
             transition={{ damping: 6, type: "spring", stiffness: 100 }}
             src={myphoto}
-            style={{
-              width: "88px",
-              borderRadius: "50%",
-              border: "1px solid darkorange",
-              padding: "1px",
+            style={{ width: "88px", borderRadius: "50%", border: "1px solid darkorange", padding: "1px",
               boxShadow: "2px 2px 40px rgba(203, 200, 200, 0.586) inset",
             }}
             alt="my photo"
@@ -56,11 +86,7 @@ const Hero = () => {
           transition={{ duration: 2 }}
           className="title"
           style={{
-            fontSize: "2.85rem",
-            lineHeight: "3.3rem",
-            margin: "24px 0",
-            color: "var(--title)",
-            position: "relative",
+            fontSize: "2.85rem", lineHeight: "3.3rem", margin: "24px 0", color: "var(--title)", position: "relative",
           }}
         >
           Software designer, FrontEnd Developer.
@@ -69,12 +95,8 @@ const Hero = () => {
         <Typography
           id="about"
           className="sub-title"
-          sx={{
-            color: "var(--subtitle)",
-            fontSize: "0.9rem",
-            lineHeight: "1.65rem",
-            marginBottom: "32px",
-            position: "relative",
+          sx={{ color: "var(--subtitle)", fontSize: "0.9rem", lineHeight: "1.65rem", 
+            marginBottom: "32px", position: "relative",
           }}
         >
           I am Abdullah Fadel front-end user interface developer and I am
@@ -95,43 +117,16 @@ const Hero = () => {
             position: "relative",
           }}
         >
-          {[
-            {
-              link: "https://www.facebook.com/abdullahafter.change",
-              icon: <Facebook />,
-              title: "Facebook",
-            },
-            {
-              link: "https://www.instagram.com/abdullah_1_bas/",
-              icon: <Instagram />,
-              title: "Instagram",
-            },
-            {
-              link: "https://github.com/abdullah1bas",
-              icon: <GitHub />,
-              title: "GitHub",
-            },
-            {
-              link: "https://www.linkedin.com/in/abdullah-fadel-21500b27b/",
-              icon: <LinkedIn />,
-              title: "LinkedIn",
-            },
-          ].map((linkButton) => {
+          {socialData.map((linkButton) => {
             return (
               <Tooltip TransitionComponent={Zoom} title={linkButton.title} key={linkButton.link}>
                 <IconButton
                   aria-label="Social"
                   href={linkButton.link}
+                  download={ linkButton.downloadCv && linkButton.downloadCv}
                   target="_blank"
-                  sx={{
-                    fontSize: "1.3rem",
-                    gap: "1rem",
-                    color: "var(--subtitle) !important",
-                    alignItems: "center",
-                    ":hover .css-i4bv87-MuiSvgIcon-root": {
-                      fontSize: "1.6rem",
-                      transition: "0.3s",
-                      cursor: "pointer",
+                  sx={{ fontSize: "1.3rem", gap: "1rem", color: "var(--subtitle) !important", alignItems: "center",
+                    ":hover .css-i4bv87-MuiSvgIcon-root": { fontSize: "1.6rem", transition: "0.3s", cursor: "pointer",
                       color: "var(--icon-hover)",
                     },
                   }}
